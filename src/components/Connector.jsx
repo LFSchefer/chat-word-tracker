@@ -33,10 +33,15 @@ export default function Connector(props) {
 
   }
 
+  const connectionBtn =
+  <div className='connector'>
+    <button className='btn-connect' onClick={connection} >Connect</button>
+  </div>
+
 
   return (
-    <div className='connector'>
-    <button className='btn-connect' onClick={connection} >Connect</button>
-    </div>
+    <>
+      {connectionBtn}
+    </>
   )
 }
