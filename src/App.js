@@ -1,12 +1,12 @@
 import './App.css';
 import Header from './components/Header';
-import Connector from './components/Connector';
+import InputForm from './components/InputForm';
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <Connector/>
+      <InputForm/>
     </div>
   );
 }
