@@ -27,12 +27,16 @@ export default function Connector(props) {
     client.on('message', (channel, tags, message, self) => {
 
       // console.log(`${tags['display-name']}: ${message}, color:${tags['color']}`);
-      setMessages(prev => [...prev, {user: tags['display-name'], message: message, userColor: tags['color']}])
+      setMessages(prev => [...prev, {chanel: chanelName , user: tags['display-name'], message: message, userColor: tags['color']}])
     });
 
   }
 
-  console.log(messages)
+  if (messages.length > 200) {
+    setMessages(prev => prev.slice(1))
+  }
+
+  console.log(messages[messages.length -1])
 
   const connectionBtn =
   <div className='connector'>
