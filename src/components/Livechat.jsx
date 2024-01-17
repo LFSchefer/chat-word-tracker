@@ -4,15 +4,15 @@ import './Livechat.css'
 export default function Livechat(props) {
 
   const tchat = props.messages.map((message,index) => {
-    return <li key={index} style={{'color':`${message.userColor}`}}>{message.user}: {message.message}</li>
+    return <div key={index}><p style={{'color':`${message.userColor}`}}>{message.user}:</p> <p>{message.message}</p></div>
   })
 
   return (
     <div className='chat-container'>
         <h5>Live tchat: {props.chanel}</h5>
-        <ul>
+        <div className="feed">
           {tchat}
-        </ul>
+        </div>
     </div>
   )
 }

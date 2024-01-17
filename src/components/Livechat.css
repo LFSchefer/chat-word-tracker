@@ -9,11 +9,10 @@
   text-align: center;
 }
 
-ul {
-  list-style: none;
+.feed {
   background-color: white;
 }
 
-li {
+p {
   margin: 8px 0;
 }
