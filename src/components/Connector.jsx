@@ -40,7 +40,7 @@ export default function Connector(props) {
     setMessages(prev => prev.slice(1))
   }
 
-  console.log(messages[messages.length -1])
+  // console.log(messages[messages.length -1])
 
   const connectionBtn =
   <div className='connector'>

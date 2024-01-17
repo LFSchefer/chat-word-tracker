@@ -9,14 +9,16 @@ export default function Livechat(props) {
 
 
   React.useEffect(()=> {
-      let objDiv = document.querySelector(".feed");
+      let objDiv = document.querySelector(`.feed${props.chanel}`);
       objDiv.scrollTop = objDiv.scrollHeight;
-  },[props.messages])
+  },[props.chanel, props.messages])
+
+  let className = `feed feed${props.chanel}`
 
   return (
     <div className='chat-container'>
         <h5>Live tchat: {props.chanel}</h5>
-        <div className="feed">
+        <div className={className}>
           {tchat}
         </div>
     </div>
