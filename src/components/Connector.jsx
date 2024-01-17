@@ -5,7 +5,8 @@ const tmi = require('tmi.js');
 export default function Connector(props) {
 
 
-  const [chanelName, setChanelName] = React.useState('mistermv')
+  const [chanelName, setChanelName] = React.useState('mistermv');
+  const [messages, setMessages] = React.useState([]);
 
   const twitchChannel = (event) => {
     setChanelName(event)
@@ -25,10 +26,13 @@ export default function Connector(props) {
 
     client.on('message', (channel, tags, message, self) => {
 
-      console.log(`${tags['display-name']}: ${message}`);
+      // console.log(`${tags['display-name']}: ${message}, color:${tags['color']}`);
+      setMessages(prev => [...prev, {user: tags['display-name'], message: message, userColor: tags['color']}])
     });
 
   }
+
+  console.log(messages)
 
   const connectionBtn =
   <div className='connector'>
