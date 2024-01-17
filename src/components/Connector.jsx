@@ -5,21 +5,18 @@ const tmi = require('tmi.js');
 export default function Connector(props) {
 
 
+  const [chanelName, setChanelName] = React.useState('mistermv')
+
+  const twitchChannel = (event) => {
+    setChanelName(event)
+  }
+
   const connection =() => {
 
     const opts = {
-      // identity: {
-      //   username: 'hutkelm',
-      //   password: 'blls5xahp64zuuxz1ixuur43p1xrv0'
-
-      //   // OLD: zww4nmfag15bx6o9u9opyiysnon9la
-      //   // blls5xahp64zuuxz1ixuur43p1xrv0
-      // },
       channels: [
-        `${props.chanel}`
+        `${chanelName}`
       ]
-
-      // 'joss_bergia'
     };
 
     const client = new tmi.Client(opts);
@@ -38,10 +35,17 @@ export default function Connector(props) {
     <button className='btn-connect' onClick={connection} >Connect</button>
   </div>
 
+  const chanel =
+  <>
+    <h5>Please enter the Twitch channel name:</h5>
+    <input type="text" placeholder='mistermv' onChange={(event) => twitchChannel(event.target.value)}/>
+  </>
+
 
   return (
-    <>
+    <div className='form-container'>
+      {chanel}
       {connectionBtn}
-    </>
+    </div>
   )
 }

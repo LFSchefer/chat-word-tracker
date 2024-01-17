@@ -2,4 +2,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 36px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container input {
+  max-height: 20px;
+  margin-left: 36px;
 }

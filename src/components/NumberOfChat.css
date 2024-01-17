@@ -3,3 +3,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.number-of-chanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
