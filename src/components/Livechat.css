@@ -1,0 +1,19 @@
+.chat-container {
+  width: 40%;
+  max-height: 450px;
+  background-color: lightgrey;
+  padding: 16px;
+}
+
+.chat-container h5 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  background-color: white;
+}
+
+li {
+  margin: 8px 0;
+}
