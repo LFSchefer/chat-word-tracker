@@ -12,6 +12,8 @@ export default function Connector(props) {
 
   const twitchChannel = (event) => {
     setChanelName(event)
+    setIsConnected(false)
+    clearTchat()
   }
 
   const connection =() => {
@@ -36,20 +38,32 @@ export default function Connector(props) {
 
   }
 
+  const clearTchat = () => {
+    setMessages([])
+  }
+
   if (messages.length > 200) {
     setMessages(prev => prev.slice(1))
+  }
+
+  const disconnect = () => {
+    window.location.reload(true);
+    // window.history.pushState(null, null, window.location.href);
   }
 
   // console.log(messages[messages.length -1])
 
   const connectionBtn =
   <div className='connector'>
+    {isConnected ?
+    <button className='btn-connect' onClick={clearTchat} >Clear</button> :
     <button className='btn-connect' onClick={connection} >Connect</button>
+    }
   </div>
 
   const chanel =
   <>
-    <h5>Please enter the Twitch channel name:</h5>
+    <h5>Twitch channel:</h5>
     <input type="text" placeholder='mistermv' onChange={(event) => twitchChannel(event.target.value)}/>
   </>
 
@@ -62,6 +76,7 @@ export default function Connector(props) {
     <div className='form-container'>
       {chanel}
       {connectionBtn}
+      <button onClick={disconnect}>Disconnect</button>
       {livechat}
     </div>
   )
