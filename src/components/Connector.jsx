@@ -31,7 +31,13 @@ export default function Connector(props) {
     client.on('message', (channel, tags, message, self) => {
 
       // console.log(`${tags['display-name']}: ${message}, color:${tags['color']}`);
-      setMessages(prev => [...prev, {chanel: chanelName , user: tags['display-name'], message: message, userColor: tags['color']}])
+      setMessages(prev => [...prev, {
+        chanel: chanelName ,
+        user: tags['display-name'],
+        message: message,
+        userColor: tags['color'],
+        time: new Date().toLocaleString('fr-FR').split(' ')[1]
+      }])
     });
 
     setIsConnected(true);
@@ -46,12 +52,18 @@ export default function Connector(props) {
     setMessages(prev => prev.slice(1))
   }
 
+  if (messages.length > 0 && messages[messages.length -1].message === props.words) {
+    console.log("check")
+    props.handleCheck(messages[messages.length -1])
+  }
+
   const disconnect = () => {
     window.location.reload(true);
     // window.history.pushState(null, null, window.location.href);
   }
 
   // console.log(messages[messages.length -1])
+  console.log(props.words)
 
   const connectionBtn =
   <div className='connector'>
