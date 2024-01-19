@@ -8,7 +8,7 @@ export default function Connector(props) {
 
   const [chanelName, setChanelName] = React.useState('mistermv');
   const [messages, setMessages] = React.useState([]);
-  const [isConnected, setIsConnected] = React.useState(false)
+  const [isConnected, setIsConnected] = React.useState(false);
 
   const twitchChannel = (event) => {
     setChanelName(event)
@@ -53,8 +53,7 @@ export default function Connector(props) {
   }
 
   if (messages.length > 0 && messages[messages.length -1].message === props.words) {
-    console.log("check")
-    props.handleCheck(messages[messages.length -1])
+    props.checkWinner(messages[messages.length -1])
   }
 
   const disconnect = () => {
@@ -63,7 +62,7 @@ export default function Connector(props) {
   }
 
   // console.log(messages[messages.length -1])
-  console.log(props.words)
+  // console.log(props.words)
 
   const connectionBtn =
   <div className='connector'>

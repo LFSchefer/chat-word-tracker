@@ -4,11 +4,27 @@ import NumberOfChat from './NumberOfChat'
 
 export default function WordTracker(props) {
 
-  const [wordToTrack, setWordToTrack] = React.useState('')
+  const [wordToTrack, setWordToTrack] = React.useState('');
+  const [winners, setWinners] = React.useState([]);
 
   const setWords = (event) => {
     setWordToTrack(event)
+    setWinners([])
   }
+
+  const checkWinner = (object) => {
+    console.log(object)
+    setWinners(prev => [...prev, object])
+  }
+
+  // function checkWinner(object) {
+  //   console.log(object)
+  //   for (let index = 0; index < 1; index++) {
+  //     setWinners(prev => [...prev, object])
+  //   }
+  // }
+
+  console.log(winners)
 
   const wordTrackerForm =
   <div className='word-tracker-container'>
@@ -19,7 +35,7 @@ export default function WordTracker(props) {
   return (
     <>
     {wordTrackerForm}
-    <NumberOfChat words={wordToTrack}/>
+    <NumberOfChat words={wordToTrack} checkWinner={checkWinner}/>
     </>
   )
 }

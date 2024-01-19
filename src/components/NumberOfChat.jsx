@@ -25,13 +25,8 @@ export default function NumberOfChat(props) {
     </select>
   </div>
 
-  const check = (object) => {
-    console.log("in parent function")
-    console.log(object)
-  }
-
   const connectors = numberOfChanel.map((num,index) => {
-    return <Connector key={index} handleCheck={check} words={props.words}/>
+    return <Connector key={index} words={props.words} checkWinner={props.checkWinner}/>
   })
 
   // console.log(props.words)
