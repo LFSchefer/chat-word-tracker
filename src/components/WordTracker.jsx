@@ -13,8 +13,22 @@ export default function WordTracker(props) {
   }
 
   const checkWinner = (object) => {
-    console.log(object)
+    // console.log(object)
+
     setWinners(prev => [...prev, object])
+
+    if (winners[winners.length -1] === winners[winners.length -2]) {
+      setWinners(prev => prev[winners.length - 1])
+    }
+
+
+    // if (winners.length === 0) {
+    //   setWinners(prev => [...prev, object])
+    // }
+    // else if (winners.length > 0 && winners[winners.length -1] !== object) {
+    //   console.log('in condition')
+    //   setWinners(prev => [...prev, object])
+    // }
   }
 
   // function checkWinner(object) {
@@ -35,7 +49,7 @@ export default function WordTracker(props) {
   return (
     <>
     {wordTrackerForm}
-    <NumberOfChat words={wordToTrack} checkWinner={checkWinner}/>
+    <NumberOfChat words={wordToTrack} checkWinner={checkWinner} winners={winners}/>
     </>
   )
 }

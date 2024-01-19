@@ -52,9 +52,11 @@ export default function Connector(props) {
     setMessages(prev => prev.slice(1))
   }
 
-  if (messages.length > 0 && messages[messages.length -1].message === props.words) {
+  if (messages.length > 0 && messages[messages.length -1].message === props.words && messages[messages.length -1] !== props.winners[props.winners.length -1]) {
     props.checkWinner(messages[messages.length -1])
   }
+
+  // console.log(props.winners)
 
   const disconnect = () => {
     window.location.reload(true);
