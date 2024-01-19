@@ -16,7 +16,7 @@ export default function NumberOfChat(props) {
 
   const inputSelect =
   <div className='number-of-chanel'>
-    <p>Please enter the number of Twitch chat you want to track</p>
+    <p>Number of Twitch chat to track: </p>
     <select name="" onChange={e => numberOfTwitchChanel(e.target.value)} defaultValue={numberOfChanel[0]}>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -26,10 +26,8 @@ export default function NumberOfChat(props) {
   </div>
 
   const connectors = numberOfChanel.map((num,index) => {
-    return <Connector key={index} words={props.words} checkWinner={props.checkWinner} winners={props.winners}/>
+    return <Connector key={index} words={props.words} checkWinner={props.checkWinner} />
   })
-
-  // console.log(props.words)
 
   return (
     <>

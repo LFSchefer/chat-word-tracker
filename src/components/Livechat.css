@@ -20,3 +20,11 @@
 p {
   margin: 8px 0;
 }
+
+.tchat-message {
+  display: flex;
+}
+
+.message-content {
+  margin-left: 12px;
+}

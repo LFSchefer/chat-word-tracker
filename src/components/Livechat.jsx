@@ -4,9 +4,8 @@ import './Livechat.css'
 export default function Livechat(props) {
 
   const tchat = props.messages.map((message,index) => {
-    return <div key={index}><p style={{'color':`${message.userColor === null ? '#FF7F50' : message.userColor }`}}>{message.user}:</p> <p>{message.message}</p></div>
+    return <div key={index} className='tchat-message'><p style={{'color':`${message.userColor === null ? '#FF7F50' : message.userColor }`}}>{message.user}:</p> <p className='message-content'>{message.message}</p></div>
   })
-
 
   React.useEffect(()=> {
       let objDiv = document.querySelector(`.feed${props.chanel}`);

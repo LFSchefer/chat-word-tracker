@@ -9,6 +9,7 @@ export default function Connector(props) {
   const [chanelName, setChanelName] = React.useState('mistermv');
   const [messages, setMessages] = React.useState([]);
   const [isConnected, setIsConnected] = React.useState(false);
+  const [lastWinner , setLastWinner] = React.useState({})
 
   const twitchChannel = (event) => {
     setChanelName(event)
@@ -48,28 +49,33 @@ export default function Connector(props) {
     setMessages([])
   }
 
-  if (messages.length > 200) {
-    setMessages(prev => prev.slice(1))
-  }
+  React.useEffect(() => {
+    if (messages.length > 200) {
+      setMessages(prev => prev.slice(1))
+    }
 
-  if (messages.length > 0 && messages[messages.length -1].message === props.words && messages[messages.length -1] !== props.winners[props.winners.length -1]) {
-    props.checkWinner(messages[messages.length -1])
-  }
+    if (messages.length > 0 && messages[messages.length -1].message === props.words) {
+      if (lastWinner !== messages[messages.length -1]) {
+        props.checkWinner(messages[messages.length -1])
+        setLastWinner(messages[messages.length -1])
+      }
+    }
+  },[messages, lastWinner, props])
 
-  // console.log(props.winners)
 
   const disconnect = () => {
     window.location.reload(true);
     // window.history.pushState(null, null, window.location.href);
   }
 
-  // console.log(messages[messages.length -1])
-  // console.log(props.words)
-
   const connectionBtn =
   <div className='connector'>
     {isConnected ?
-    <button className='btn-connect' onClick={clearTchat} >Clear</button> :
+    <div>
+      <button className='btn-connect' onClick={clearTchat} >Clear</button>
+      <button onClick={disconnect}>Disconnect</button>
+    </div>
+    :
     <button className='btn-connect' onClick={connection} >Connect</button>
     }
   </div>
@@ -89,7 +95,6 @@ export default function Connector(props) {
     <div className='form-container'>
       {chanel}
       {connectionBtn}
-      <button onClick={disconnect}>Disconnect</button>
       {livechat}
     </div>
   )
