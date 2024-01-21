@@ -10,8 +10,9 @@
   min-width: 300px;
   width: fit-content;
   max-width: 650px;
-  background-color: white;
+  background-color: #1F1F23;
   overflow-y: scroll;
+  border: 1px solid white;
 }
 
 .winner {
@@ -23,10 +24,11 @@
 .winners-container {
   width: fit-content;
   height: 200px;
-  background-color: lightgrey;
+  background-color: #1F1F23;
   padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid white;
 }

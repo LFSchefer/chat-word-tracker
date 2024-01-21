@@ -1,8 +1,9 @@
 .chat-container {
   width: 300px;
   height: fit-content;
-  background-color: lightgrey;
+  background-color: #1F1F23;
   padding: 16px;
+  border: 1px solid white;
 }
 
 .chat-container h5 {
@@ -10,11 +11,12 @@
 }
 
 .feed {
-  background-color: white;
+  background-color: #1F1F23;
   height: 40vh;
   overflow-y: auto;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  border: 1px solid white;
 }
 
 p {
