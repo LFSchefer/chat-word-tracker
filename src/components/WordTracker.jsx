@@ -8,7 +8,7 @@ export default function WordTracker(props) {
   const [winners, setWinners] = React.useState([]);
 
   const setWords = (event) => {
-    setWordToTrack(event)
+    setWordToTrack(event.toLowerCase().replaceAll(' ',''))
     setWinners([])
   }
 
@@ -16,11 +16,21 @@ export default function WordTracker(props) {
     setWinners(prev => [...prev, object])
   }
 
-  // console.log(winners)
+  // console.log(wordToTrack)
 
   const winnerList = winners.length > 0 ?
    winners.map((winner,index)=> {
-    return <div className="winner" key={index}><p>{index + 1}:</p><p style={{'color':`${winner.userColor === null ? '#FF7F50' : winner.userColor }`}}>{winner.user}</p><p>at:</p><p>{winner.time}</p><p>with:</p><p>{winner.message}</p><p>in:</p><p>{winner.chanel}</p></div>
+    return <div className="winner" key={index}>
+      <div className='winner-first-line'>
+        <p>{index + 1}:</p><p style={{'color':`${winner.userColor === null ? '#FF7F50' : winner.userColor }`}}>{winner.user}</p><p>at:</p><p>{winner.time}</p>
+      </div>
+      <div className='winner-seconde-line'>
+        <p>chanel:</p><p>{winner.chanel}</p>
+      </div>
+      <div className='winner-third-line'>
+        <p>message:</p><p>{winner.message}</p>
+      </div>
+      </div>
    }):
    null ;
 

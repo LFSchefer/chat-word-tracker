@@ -17,10 +17,10 @@ export default function Connector(props) {
     clearTchat()
   }
 
-  const connection =() => {
+  const connection = (input) => {
 
-    const opts = {
-      channels: [
+      const opts = {
+        channels: [
         `${chanelName}`
       ]
     };
@@ -54,7 +54,7 @@ export default function Connector(props) {
       setMessages(prev => prev.slice(1))
     }
 
-    if (messages.length > 0 && messages[messages.length -1].message === props.words) {
+    if (messages.length > 0 && messages[messages.length -1].message.toLowerCase().replaceAll(' ','') === props.words) {
       if (lastWinner !== messages[messages.length -1]) {
         props.checkWinner(messages[messages.length -1])
         setLastWinner(messages[messages.length -1])
@@ -89,7 +89,6 @@ export default function Connector(props) {
   const livechat = isConnected ?
   <Livechat chanel={chanelName} messages={messages}/> :
   <></>
-
 
   return (
     <div className='form-container'>
