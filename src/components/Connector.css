@@ -13,7 +13,8 @@
 }
 
 .form-container input {
-  height: 20px;
+  height: fit-content;
+  width: fit-content;
 }
 
 .btn {

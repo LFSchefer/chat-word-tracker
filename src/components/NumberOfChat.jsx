@@ -17,7 +17,7 @@ export default function NumberOfChat(props) {
   const inputSelect =
   <div className='number-of-chanel'>
     <p>Number of Twitch chat to track: </p>
-    <select name="" onChange={e => numberOfTwitchChanel(e.target.value)} defaultValue={numberOfChanel[0]}>
+    <select className='form-select' name="" onChange={e => numberOfTwitchChanel(e.target.value)} defaultValue={numberOfChanel[0]}>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>

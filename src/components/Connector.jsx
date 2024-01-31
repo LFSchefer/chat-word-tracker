@@ -83,7 +83,7 @@ export default function Connector(props) {
   const chanel =
   <>
     <h5>Twitch channel:</h5>
-    <input type="text" placeholder='Ex: mistermv' onChange={(event) => twitchChannel(event.target.value)}/>
+    <input type="text" className='input-group-text' placeholder='Ex: mistermv' onChange={(event) => twitchChannel(event.target.value)}/>
   </>
 
   const livechat = isConnected ?

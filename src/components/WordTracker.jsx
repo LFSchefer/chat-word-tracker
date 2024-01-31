@@ -22,13 +22,13 @@ export default function WordTracker(props) {
    winners.map((winner,index)=> {
     return <div className="winner" key={index}>
       <div className='winner-first-line'>
-        <p>{index + 1}:</p><p style={{'color':`${winner.userColor === null ? '#FF7F50' : winner.userColor }`}}>{winner.user}</p><p>at:</p><p>{winner.time}</p>
+        <h5>{index + 1}:</h5><p style={{'color':`${winner.userColor === null ? '#FF7F50' : winner.userColor }`}}>{winner.user}</p><h5>at:</h5><p>{winner.time}</p>
       </div>
       <div className='winner-seconde-line'>
-        <p>chanel:</p><p>{winner.chanel}</p>
+        <h5>chanel:</h5><p>{winner.chanel}</p>
       </div>
       <div className='winner-third-line'>
-        <p>message:</p><p>{winner.message}</p>
+        <h5>message:</h5><p>{winner.message}</p>
       </div>
       </div>
    }):
@@ -45,7 +45,7 @@ export default function WordTracker(props) {
   const wordTrackerForm =
   <div className='word-tracker-container'>
     <h5>Words to track:</h5>
-    <input type="text" onChange={event => setWords(event.target.value)}/>
+    <input type="text" className='input-group-text' onChange={event => setWords(event.target.value)}/>
     {winnersDisplay}
   </div>
 
