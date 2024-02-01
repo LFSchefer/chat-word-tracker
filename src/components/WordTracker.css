@@ -64,3 +64,8 @@
 .input-group-text:focus-within {
   outline-color: #a970ff;
 }
+
+.check-method {
+  display: flex;
+  align-items: center;
+}

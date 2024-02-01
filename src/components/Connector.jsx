@@ -54,11 +54,41 @@ export default function Connector(props) {
       setMessages(prev => prev.slice(1))
     }
 
-    if (messages.length > 0 && messages[messages.length -1].message.toLowerCase().replaceAll(' ','') === props.words) {
-      if (lastWinner !== messages[messages.length -1]) {
-        props.checkWinner(messages[messages.length -1])
-        setLastWinner(messages[messages.length -1])
-      }
+    switch (props.method) {
+      case '1':
+        if (messages.length > 0 && messages[messages.length -1].message === props.words) {
+          if (lastWinner !== messages[messages.length -1]) {
+            props.checkWinner(messages[messages.length -1])
+            setLastWinner(messages[messages.length -1])
+          }
+        }
+        break;
+      case '2':
+        if (messages.length > 0 && messages[messages.length -1].message.toLowerCase() === props.words) {
+          if (lastWinner !== messages[messages.length -1]) {
+            props.checkWinner(messages[messages.length -1])
+            setLastWinner(messages[messages.length -1])
+          }
+        }
+        break;
+      case '3':
+        if (messages.length > 0 && messages[messages.length -1].message.replaceAll(' ','') === props.words) {
+          if (lastWinner !== messages[messages.length -1]) {
+            props.checkWinner(messages[messages.length -1])
+            setLastWinner(messages[messages.length -1])
+          }
+        }
+        break;
+      case '4':
+        if (messages.length > 0 && messages[messages.length -1].message.toLowerCase().replaceAll(' ','') === props.words) {
+          if (lastWinner !== messages[messages.length -1]) {
+            props.checkWinner(messages[messages.length -1])
+            setLastWinner(messages[messages.length -1])
+          }
+        }
+        break;
+      default:
+        break;
     }
   },[messages, lastWinner, props])
 
