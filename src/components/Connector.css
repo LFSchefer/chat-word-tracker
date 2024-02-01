@@ -20,4 +20,9 @@
 .btn {
   background-color: #a970ff;
   color: white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #7429e5;
 }

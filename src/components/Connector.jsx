@@ -72,8 +72,8 @@ export default function Connector(props) {
   <div className='connector'>
     {isConnected ?
     <div>
-      <button className='btn btn-clear' onClick={clearTchat} >Clear</button>
-      <button className='btn btn-disconnect' onClick={disconnect}>Disconnect</button>
+      <button className='btn btn-clear mx-3' onClick={clearTchat} >Clear</button>
+      <button className='btn btn-disconnect mx-3' onClick={disconnect}>Disconnect</button>
     </div>
     :
     <button className='btn btn-connect' onClick={connection} >Connect</button>

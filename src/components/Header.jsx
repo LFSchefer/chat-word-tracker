@@ -4,7 +4,7 @@ import './Header.css'
 export default function Header(props) {
 
   return (
-    <header>
+    <header className='mb-4'>
       <h1>Test app</h1>
     </header>
   )
