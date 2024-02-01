@@ -1,6 +1,7 @@
 # Twitch chat word
 
 Simple app to track a word / sentence in one or multiple twitch chat.
+For quiz and compete for exemple.
 
 ### `Chose a word`
 
