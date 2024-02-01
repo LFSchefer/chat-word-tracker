@@ -4,9 +4,17 @@ header {
   position: sticky;
   top: 0;
   margin: 0;
+  min-height: fit-content;
 }
 
 header * {
   margin: 0;
   padding: 0;
+}
+
+.header {
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
