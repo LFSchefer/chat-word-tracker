@@ -1,6 +1,8 @@
 import * as React from 'react'
 import "./WordTracker.css"
 import NumberOfChat from './NumberOfChat'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfo } from '@fortawesome/free-solid-svg-icons'
 
 export default function WordTracker(props) {
 
@@ -78,6 +80,7 @@ export default function WordTracker(props) {
       <option value="3">No Space</option>
       <option value="4">No Cap/Space</option>
     </select>
+    <FontAwesomeIcon icon={faInfo} />
   </div>
 
   const wordTrackerForm =
