@@ -5,12 +5,14 @@ import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 export default function Methodinfo(props) {
 
+  const [hidden, setHidden] = React.useState(true)
+
   const enter = () => {
-    console.log("enter")
+    setHidden(prev => (!prev))
   }
 
   const exit = () => {
-    console.log("exit")
+    setHidden(prev => (!prev))
   }
 
   let exempleText = "";
@@ -48,13 +50,12 @@ export default function Methodinfo(props) {
       break;
   }
 
-  const info = <div className='info-card card'>
+  const info = <div className= {hidden ? 'info-card card hidden' :'info-card card'}>
     {explanation}
     {exempleText}
     {exempleGood}
     {exempleBad}
   </div>
-
 
   return (
     <div className='info'>
