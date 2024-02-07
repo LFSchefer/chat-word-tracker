@@ -3,6 +3,22 @@
   position: relative;
 }
 
+.method-info {
+  position: relative;
+}
+
 .info-card {
   position: absolute;
+  top: -7px;
+  left: 20px;
+  width: 300px;
+  padding: 8px;
+}
+
+.good {
+  color: green;
+}
+
+.bad {
+  color: red;
 }
