@@ -2,6 +2,7 @@ import * as React from 'react';
 import "./WordTracker.css";
 import NumberOfChat from './NumberOfChat';
 import Methodinfo from './Methodinfo';
+import Score from './Score';
 
 
 export default function WordTracker(props) {
@@ -10,6 +11,7 @@ export default function WordTracker(props) {
   const [winners, setWinners] = React.useState([]);
   const [checker , setChecker] = React.useState('1');
   const [originalWord, setOriginalWord] = React.useState('');
+  const [multiRound, setMultiRound] = React.useState(false)
 
   const handleOriginal = (event) => {
     setOriginalWord(event)
@@ -45,7 +47,11 @@ export default function WordTracker(props) {
     setChecker(event)
     }
 
-  // console.log(wordToTrack)
+    const handleMulti = () => {
+      setMultiRound(prev => !prev)
+    }
+
+  console.log(multiRound)
 
   const winnerList = winners.length > 0 ?
    winners.map((winner,index)=> {
@@ -83,6 +89,12 @@ export default function WordTracker(props) {
     < Methodinfo checker={checker}/>
   </div>
 
+  const multiRoundDisplay =
+  <div className="multi-round">
+    <div className="btn" onClick={handleMulti}>{multiRound ? "Single round" : "Multi Round"}</div>
+    < Score/>
+  </div>
+
   const wordTrackerForm =
   <div className='word-tracker-container'>
     <h5>Words to track:</h5>
@@ -91,6 +103,7 @@ export default function WordTracker(props) {
     {inputMethod}
     </div>
     {winnersDisplay}
+    {multiRoundDisplay}
   </div>
 
   return (
