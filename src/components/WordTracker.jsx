@@ -11,7 +11,8 @@ export default function WordTracker(props) {
   const [winners, setWinners] = React.useState([]);
   const [checker , setChecker] = React.useState('1');
   const [originalWord, setOriginalWord] = React.useState('');
-  const [multiRound, setMultiRound] = React.useState(false)
+  const [multiRound, setMultiRound] = React.useState(false);
+  const [score, setScore] = React.useState({});
 
   const handleOriginal = (event) => {
     setOriginalWord(event)
@@ -47,11 +48,59 @@ export default function WordTracker(props) {
     setChecker(event)
     }
 
-    const handleMulti = () => {
+  const handleMulti = () => {
       setMultiRound(prev => !prev)
     }
 
-  // console.log(multiRound)
+  const addScore = () => {
+    winners.forEach((winner, index)=> {
+      switch (index) {
+        case 0:
+          winner.user === undefined ?
+          setScore(prev => {
+          })
+          :
+          setScore({
+            ...score,
+            winner: {...score, score: winner.user.score + 10}
+          })
+             ;
+          break;
+        case 1:
+
+          break;
+        case 2:
+
+          break;
+        case 3:
+
+          break;
+        case 4:
+
+          break;
+        case 5:
+
+          break;
+        case 6:
+
+          break;
+        case 7:
+
+          break;
+        case 8:
+
+          break;
+        case 9:
+
+          break;
+
+        default:
+          break;
+      }
+    })
+  }
+
+  console.log(score)
 
   const winnerList = winners.length > 0 ?
    winners.map((winner,index)=> {
@@ -71,7 +120,7 @@ export default function WordTracker(props) {
 
    const multiRoundDisplay =
    <div className="multi-round">
-     {multiRound ? < Score/> : <></>}
+     {multiRound ? < Score score={score}/> : <></>}
    </div>
 
   const winnersDisplay =
@@ -94,20 +143,26 @@ export default function WordTracker(props) {
     < Methodinfo checker={checker}/>
   </div>
 
+  const btnMulti = multiRound ?
+  <div className="d-flex w-50">
+    <div className="btn mx-4" onClick={handleMulti}>Single round</div>
+    <div className="btn mx-4" onClick={addScore}>Add score</div>
+  </div>
+  :
+  <div className="btn" onClick={handleMulti}>Multi Round</div>;
 
   const wordTrackerForm =
-  <div className='word-tracker-container'>
+  <div className='word-tracker-container mb-4'>
     <h5>Words to track:</h5>
     <div className='d-flex'>
     <input type="text" className='input-group-text' onChange={event => handleOriginal(event.target.value)}/>
     {inputMethod}
     </div>
-    <div className="d-flex w-50 justify-content-between">
+    <div className={multiRound ? "d-flex w-50 justify-content-between" : "d-flex justify-content-between"}>
     {winnersDisplay}
     {multiRoundDisplay}
     </div>
-    <div className="btn" onClick={handleMulti}>{multiRound ? "Single round" : "Multi Round"}</div>
-
+    {btnMulti}
   </div>
 
   return (
