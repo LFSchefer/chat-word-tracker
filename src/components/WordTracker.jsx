@@ -51,7 +51,7 @@ export default function WordTracker(props) {
       setMultiRound(prev => !prev)
     }
 
-  console.log(multiRound)
+  // console.log(multiRound)
 
   const winnerList = winners.length > 0 ?
    winners.map((winner,index)=> {
@@ -69,9 +69,14 @@ export default function WordTracker(props) {
    }):
    null ;
 
+   const multiRoundDisplay =
+   <div className="multi-round">
+     {multiRound ? < Score/> : <></>}
+   </div>
+
   const winnersDisplay =
   <div className="winners-container">
-    <h5>Winners:</h5>
+    <h5>{multiRound ? "Round" : "Winners"}:</h5>
     <div className="winners-list">
       {winnerList}
     </div>
@@ -89,11 +94,6 @@ export default function WordTracker(props) {
     < Methodinfo checker={checker}/>
   </div>
 
-  const multiRoundDisplay =
-  <div className="multi-round">
-    <div className="btn" onClick={handleMulti}>{multiRound ? "Single round" : "Multi Round"}</div>
-    < Score/>
-  </div>
 
   const wordTrackerForm =
   <div className='word-tracker-container'>
@@ -102,8 +102,12 @@ export default function WordTracker(props) {
     <input type="text" className='input-group-text' onChange={event => handleOriginal(event.target.value)}/>
     {inputMethod}
     </div>
+    <div className="d-flex w-50 justify-content-between">
     {winnersDisplay}
     {multiRoundDisplay}
+    </div>
+    <div className="btn" onClick={handleMulti}>{multiRound ? "Single round" : "Multi Round"}</div>
+
   </div>
 
   return (
