@@ -52,36 +52,69 @@ export default function WordTracker(props) {
       setMultiRound(prev => !prev)
     }
 
+    React.useEffect(()=> {
+      setWinners([{user: 'toto', userColor: null, message: 'test', chanel:'test', time: 'test'}])
+    },[])
+
   const addScore = () => {
     const scoreCandidate = score;
-    // console.log(scoreCandidate)
     winners.forEach((winner, index)=> {
 
       switch (index) {
         case 0:
-          // console.log(winner.user)
-          scoreCandidate.userId === undefined ?
-          // scoreCandidate[winner.user] = "toto"
+          if (scoreCandidate[winner.user] === undefined) {
             scoreCandidate[winner.user] = {
-              score: 10,
-              color: winner.userColor
-            }
-          :
-          console.log('in else')
-            scoreCandidate[winner.user][score] += 10;
-          ;
+                score: 10,
+                color: winner.userColor
+              }
+          }
+          else {
+            scoreCandidate[winner.user].score += 10;
+          }
           break;
         case 1:
-
+          if (scoreCandidate[winner.user] === undefined) {
+            scoreCandidate[winner.user] = {
+                score: 10,
+                color: winner.userColor
+              }
+          }
+          else {
+            scoreCandidate[winner.user].score += 10;
+          }
           break;
         case 2:
-
+          if (scoreCandidate[winner.user] === undefined) {
+            scoreCandidate[winner.user] = {
+                score: 10,
+                color: winner.userColor
+              }
+          }
+          else {
+            scoreCandidate[winner.user].score += 10;
+          }
           break;
         case 3:
-
+          if (scoreCandidate[winner.user] === undefined) {
+            scoreCandidate[winner.user] = {
+                score: 10,
+                color: winner.userColor
+              }
+          }
+          else {
+            scoreCandidate[winner.user].score += 10;
+          }
           break;
         case 4:
-
+          if (scoreCandidate[winner.user] === undefined) {
+            scoreCandidate[winner.user] = {
+                score: 10,
+                color: winner.userColor
+              }
+          }
+          else {
+            scoreCandidate[winner.user].score += 10;
+          }
           break;
 
         default:
@@ -89,12 +122,10 @@ export default function WordTracker(props) {
       }
     })
     setScore(scoreCandidate);
-    console.log(score)
   }
 
   const clearScore = () => {
     setScore({});
-    console.log(score)
   }
 
 
