@@ -53,18 +53,23 @@ export default function WordTracker(props) {
     }
 
   const addScore = () => {
+    const scoreCandidate = score;
+    // console.log(scoreCandidate)
     winners.forEach((winner, index)=> {
+
       switch (index) {
         case 0:
-          winner.user === undefined ?
-          setScore(prev => {
-          })
+          // console.log(winner.user)
+          scoreCandidate.userId === undefined ?
+          // scoreCandidate[winner.user] = "toto"
+            scoreCandidate[winner.user] = {
+              score: 10,
+              color: winner.userColor
+            }
           :
-          setScore({
-            ...score,
-            winner: {...score, score: winner.user.score + 10}
-          })
-             ;
+          console.log('in else')
+            scoreCandidate[winner.user][score] += 10;
+          ;
           break;
         case 1:
 
@@ -78,29 +83,20 @@ export default function WordTracker(props) {
         case 4:
 
           break;
-        case 5:
-
-          break;
-        case 6:
-
-          break;
-        case 7:
-
-          break;
-        case 8:
-
-          break;
-        case 9:
-
-          break;
 
         default:
           break;
       }
     })
+    setScore(scoreCandidate);
+    console.log(score)
   }
 
-  console.log(score)
+  const clearScore = () => {
+    setScore({});
+    console.log(score)
+  }
+
 
   const winnerList = winners.length > 0 ?
    winners.map((winner,index)=> {
@@ -168,6 +164,7 @@ export default function WordTracker(props) {
   return (
     <>
     {wordTrackerForm}
+    <div className="btn" onClick={clearScore}>clear score</div>
     <NumberOfChat words={wordToTrack} method={checker} checkWinner={checkWinner} />
     </>
   )
