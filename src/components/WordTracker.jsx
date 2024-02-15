@@ -15,8 +15,8 @@ export default function WordTracker(props) {
   const [score, setScore] = React.useState({});
 
   const handleOriginal = (event) => {
-    setOriginalWord(event)
-    setWinners([])
+    setOriginalWord(event);
+    setWinners([]);
   }
 
   React.useEffect(()=> {
@@ -56,8 +56,8 @@ export default function WordTracker(props) {
       setWinners([{user: 'toto', userColor: null, message: 'test', chanel:'test', time: 'test'}])
     },[])
 
-  const addScore = () => {
-    const scoreCandidate = score;
+  function addScore() {
+    const scoreCandidate = JSON.parse(JSON.stringify(score));
     winners.forEach((winner, index)=> {
 
       switch (index) {
@@ -75,45 +75,45 @@ export default function WordTracker(props) {
         case 1:
           if (scoreCandidate[winner.user] === undefined) {
             scoreCandidate[winner.user] = {
-                score: 10,
+                score: 8,
                 color: winner.userColor
               }
           }
           else {
-            scoreCandidate[winner.user].score += 10;
+            scoreCandidate[winner.user].score += 8;
           }
           break;
         case 2:
           if (scoreCandidate[winner.user] === undefined) {
             scoreCandidate[winner.user] = {
-                score: 10,
+                score: 6,
                 color: winner.userColor
               }
           }
           else {
-            scoreCandidate[winner.user].score += 10;
+            scoreCandidate[winner.user].score += 6;
           }
           break;
         case 3:
           if (scoreCandidate[winner.user] === undefined) {
             scoreCandidate[winner.user] = {
-                score: 10,
+                score: 4,
                 color: winner.userColor
               }
           }
           else {
-            scoreCandidate[winner.user].score += 10;
+            scoreCandidate[winner.user].score += 4;
           }
           break;
         case 4:
           if (scoreCandidate[winner.user] === undefined) {
             scoreCandidate[winner.user] = {
-                score: 10,
+                score: 2,
                 color: winner.userColor
               }
           }
           else {
-            scoreCandidate[winner.user].score += 10;
+            scoreCandidate[winner.user].score += 2;
           }
           break;
 
@@ -122,12 +122,14 @@ export default function WordTracker(props) {
       }
     })
     setScore(scoreCandidate);
+    setWinners([]);
+    setOriginalWord('');
   }
+
 
   const clearScore = () => {
     setScore({});
   }
-
 
   const winnerList = winners.length > 0 ?
    winners.map((winner,index)=> {
@@ -182,7 +184,7 @@ export default function WordTracker(props) {
   <div className='word-tracker-container mb-4'>
     <h5>Words to track:</h5>
     <div className='d-flex'>
-    <input type="text" className='input-group-text' onChange={event => handleOriginal(event.target.value)}/>
+    <input type="text" className='input-group-text' onChange={event => handleOriginal(event.target.value)} value={originalWord}/>
     {inputMethod}
     </div>
     <div className={multiRound ? "d-flex w-50 justify-content-between" : "d-flex justify-content-between"}>
