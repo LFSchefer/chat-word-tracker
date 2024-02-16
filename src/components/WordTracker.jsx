@@ -52,9 +52,10 @@ export default function WordTracker(props) {
       setMultiRound(prev => !prev)
     }
 
-    React.useEffect(()=> {
-      setWinners([{user: 'toto', userColor: null, message: 'test', chanel:'test', time: 'test'}])
-    },[])
+    //  Fake data to test score
+    // React.useEffect(()=> {
+    //   setWinners([{user: 'toto', userColor: null, message: 'test', chanel:'test', time: 'test'}])
+    // },[])
 
   function addScore() {
     const scoreCandidate = JSON.parse(JSON.stringify(score));
