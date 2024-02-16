@@ -173,9 +173,16 @@ export default function WordTracker(props) {
   </div>
 
   const btnMulti = multiRound ?
-  <div className="d-flex w-50">
+  <div className="d-flex w-50 justify-content-between">
+    <div className="d-flex">
+
     <div className="btn mx-4" onClick={handleMulti}>Single round</div>
     <div className="btn mx-4" onClick={addScore}>Add score</div>
+    </div>
+    <div className="d-flex">
+
+    <div className="btn" onClick={clearScore}>clear score</div>
+    </div>
   </div>
   :
   <div className="btn" onClick={handleMulti}>Multi Round</div>;
@@ -197,7 +204,6 @@ export default function WordTracker(props) {
   return (
     <>
     {wordTrackerForm}
-    <div className="btn" onClick={clearScore}>clear score</div>
     <NumberOfChat words={wordToTrack} method={checker} checkWinner={checkWinner} />
     </>
   )

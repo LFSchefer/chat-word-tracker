@@ -23,5 +23,6 @@ export default function Score(props) {
       {displayScore}
     </div>
   </div>
+
   )
 }
