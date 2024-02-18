@@ -8,13 +8,17 @@ For quiz and compete for exemple.
 Enter a word or a sentence you wanna track.
 The answer is case and space insensitive.
 
-### `Connect to chat`
+### `Connect to chat(s)`
 
 You can connect up to 4 twitch chat, and see the live feed.
 
 ### `Winners`
 
 The winners are automaticaly add in the winner list.
+
+### `Multi rounds`
+
+You can have multiple rounds and adding score of each round to the global score.
 
 ### `links`
 
