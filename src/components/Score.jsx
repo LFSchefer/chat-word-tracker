@@ -11,7 +11,7 @@ export default function Score(props) {
   const displayScore = sortArray.map((score,index)=>{
     return <div key={index} className='d-flex justify-content-between mx-1 p-2 winner'>
       <p>{index + 1}:</p>
-      <p style={{'color': `${score[1].userColor === undefined ? '#FF7F50' : score[1].userColor }`}}>{score[0]}</p>
+      <p style={{'color': `${score[1].color === undefined ? '#FF7F50' : score[1].color }`}}>{score[0]}</p>
       <p>{score[1].score} points</p>
       </div>
   })
