@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useState, useEffect} from 'react'
 import './Connector.css';
 import Livechat from './Livechat';
 const tmi = require('tmi.js');
@@ -6,10 +6,10 @@ const tmi = require('tmi.js');
 export default function Connector(props) {
 
 
-  const [chanelName, setChanelName] = React.useState('mistermv');
-  const [messages, setMessages] = React.useState([]);
-  const [isConnected, setIsConnected] = React.useState(false);
-  const [lastWinner , setLastWinner] = React.useState({})
+  const [chanelName, setChanelName] = useState('mistermv');
+  const [messages, setMessages] = useState([]);
+  const [isConnected, setIsConnected] = useState(false);
+  const [lastWinner , setLastWinner] = useState({})
 
   const twitchChannel = (event) => {
     setChanelName(event)
@@ -49,7 +49,7 @@ export default function Connector(props) {
     setMessages([])
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (messages.length > 200) {
       setMessages(prev => prev.slice(1))
     }
@@ -113,7 +113,7 @@ export default function Connector(props) {
   const chanel =
   <>
     <h5>Twitch channel:</h5>
-    <input type="text" className='input-group-text' placeholder='Ex: mistermv' onChange={(event) => twitchChannel(event.target.value)}/>
+    <input type="text" title='chat-number' className='input-group-text' placeholder='Ex: mistermv' onChange={(event) => twitchChannel(event.target.value)}/>
   </>
 
   const livechat = isConnected ?
